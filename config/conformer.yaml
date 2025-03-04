@@ -3,9 +3,9 @@ model:
     global_cmvn_path: null
   num_mel_bins: 80
   subsampling_channel: 256
-  subsampling_dropout: 0.1
-  type_encoder: 'conformer'
-  type_decoder: 'transformer'
+  subsampling_dropout: 0.2
+  type_encoder: "conformer"
+  type_decoder: "transformer"
   sinusoidal_pos_enc_style: add
   position_dropout: 0.1
   encoder_params:
@@ -20,7 +20,7 @@ model:
   ctc_weight: 0.5
   ctc_linear_dropout: 0.05
   decoder_params:
-    n_layers: 4
+    n_layers: 8
     d_model: 256
     n_head: 4
     dropout: 0.1
@@ -45,7 +45,7 @@ train:
   pretrained_path: null # restore checkpoint for continue training
   wandb_config:
     project: vivos
-    tag: conformer
+    tag: model_cfm
 
 decode:
   beamsize: 1
@@ -53,5 +53,3 @@ decode:
   word_vocab_path: data/word_vocab.txt
   kenlm_alpha: 0.5
   kenlm_beta: 1.5
-
-
